@@ -1,0 +1,356 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 200px;
+    height: 800px; /* Consider removing fixed height for better responsiveness */
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.contact {
+    margin-top: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 25px;
+    margin-right: 30px;
+    margin-left: 10px;
+}
+
+.logocontainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar nav a {
+    position: relative; /* Make position relative to position the arrow */
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.2s ease; /* Transition for background color */
+}
+
+/* Remove active background color */
+.sidebar nav a.active {
+    background-color: transparent; /* No background for active state */
+}
+
+/* Hover effect for navigation links */
+.sidebar nav a:hover {
+    background-color: #34495e; /* Highlight background on hover */
+}
+
+/* Arrow for active link */
+.sidebar nav a.active::after {
+    content: ''; /* Create an empty content for the arrow */
+    position: absolute; /* Position the arrow */
+    right: -10px; /* Adjust right position to place arrow next to the link */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for the height of the arrow */
+    width: 0; 
+    height: 0; 
+    border-left: 8px solid transparent; 
+    border-right: 8px solid transparent; 
+    border-top: 8px solid #3498db; 
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+}
+
+.search-bar input {
+    padding: 5px;
+    font-size: 16px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.user-profile {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+#controls button:hover {
+    background-color: #34495e; /* Change to a lighter shade on hover */
+}
+
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto; /* Center the spinner */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.content-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.table-section {
+    flex: 2;
+}
+
+.chatbot-section {
+    flex: 1;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#prev-page, #next-page {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Main chat container styles */
+#chatContainer {
+    display: flex;
+    flex-direction: column; /* Stack chat messages above the input */
+    width: 400px; /* Set a fixed width for the chat container */
+    max-height: 520px; /* Set max height for the chat */
+    border: 1px solid #ccc; /* Optional border for visibility */
+    border-radius: 8px; /* Rounded corners for the chat */
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Container for chat messages */
+#chatMessages {
+    flex-grow: 1; /* Allow this section to grow and take available space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Padding around messages */
+    background-color: #f9f9f9; /* Background color for chat */
+}
+
+/* Individual chat message styles */
+.message {
+    max-width: 80%; /* Set a maximum width for messages */
+    padding: 10px;
+    margin: 5px 0; /* Margin between messages */
+    border-radius: 8px; /* Rounded corners for messages */
+    word-wrap: break-word; /* Ensure words wrap correctly */
+}
+
+/* User message styles */
+.message.user {
+    background-color: #d1e7dd; /* Light green for user messages */
+    align-self: flex-end; /* Align user messages to the right */
+}
+
+/* Bot message styles */
+.message.bot {
+    background-color: #f8d7da; /* Light red for bot messages */
+    align-self: flex-start; /* Align bot messages to the left */
+}
+
+/* Input container styles */
+.input-container {
+    display: flex; /* Flexbox layout for input and button */
+    padding: 10px; /* Padding around input area */
+}
+
+/* Input field styles */
+#chatInput {
+    flex-grow: 1; /* Allow input to grow */
+    padding: 10px; /* Padding inside input */
+    border: 1px solid #ccc; /* Border for input field */
+    border-radius: 5px; /* Rounded corners */
+    margin-right: 10px; /* Space between input and button */
+}
+
+/* Button styles */
+#sendButton {
+    padding: 10px 20px; /* Padding for button */
+    border: none; /* Remove default border */
+    background-color: #3498db; /* Button color */
+    color: white; /* Text color */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Button hover effect */
+#sendButton:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#suggestions {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 5px;
+}
+
+/* Suggestion styles */
+.suggestion {
+    margin: 5px;
+    cursor: pointer;
+    color: #ffffff; /* Link color for suggested questions */
+}
+
+#forecast-table {
+    width: 100%;
+    border-collapse: collapse;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transition for smooth effect */
+}
+
+/* Pop on hover */
+#forecast-table:hover {
+    transform: scale(1.02); /* Scale up slightly */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+/* Chat container hover effect */
+#chatContainer:hover {
+    transform: scale(1.02); /* Scale up slightly */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    .container {
+        width: 100vw;
+        flex-direction: column; /* Stack the sidebar and main content vertically */
+        align-items: center; 
+ }
+
+    .sidebar {
+        display: flex;
+        flex-basis: 100%; /* Ensure the sidebar takes up 100% width in the container */
+        width: 100vw !important;/* Set the width to 100% of the viewport width */
+        height: auto !important;
+        text-align: center;
+        padding: 10px 10px;
+    }
+    .logotext{
+        align-self: center;
+    }
+    .sidebar nav a {
+        padding: 10px;
+    }
+
+    .logocontainer{
+        margin-right: auto;
+    }
+
+    .main-content {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+    
+
+    .content-wrapper {
+        flex-direction: column; /* Stack content vertically */
+        gap: 10px; /* Reduce gap */
+    }
+
+    #chatContainer {
+        width: 100%; /* Full width for chat container */
+    }
+
+    .contact {
+        margin-top: 20px; /* Adjust margin for smaller screens */
+    }
+}
+

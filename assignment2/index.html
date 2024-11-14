@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherBuild/Dashboard
+    Website by Safi ur Rehman</title>
+    <link rel="icon" href="WeatherNow.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logocontainer"><img  class="logo" src="WeatherNow.png" alt="logo">
+            <strong class="logotext">WeatherBuild</strong></div>
+            <nav>
+                <a href="index.html" class="active">Dashboard</a>
+                <a href="tables.html">Tables</a>
+            </nav>
+
+           
+        </aside>
+        <main class="main-content">
+            <header>
+                <div class="search-bar">
+                    <input type="text" id="city-input" placeholder="Search for a city">
+                    <button id="search-btn">Search</button>
+                </div>
+            </header>
+            <section id="weather-widget" class="weather-widget">
+                <h2>Weather in <span id="city-name">Current Location</span></h2>
+
+                <label for="unit-toggle">Show Temperature in Fahrenheit</label>
+                <input type="checkbox" id="unit-toggle" />
+                <div id="loading-spinner" style="display: none;">
+                    <div class="spinner"></div>
+                </div>
+                
+                <div id="weather-info"></div>
+            </section>
+            <section class="charts">
+                <div class="chart-container">
+                    <h3>5-Day Temperature Forecast</h3>
+                    <canvas id="temp-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Weather Conditions Distribution</h3>
+                    <canvas id="conditions-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h3>Temperature Trend</h3>
+                    <canvas id="temp-trend-chart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
